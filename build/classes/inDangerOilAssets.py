@@ -1,4 +1,4 @@
-from build/functions import getCordDistance, getMinDistance, calcDangerLevel, to_Cartesian
+from functions import getCordDistance, getMinDistance, calcDangerLevel, to_Cartesian
 import numpy as np
 from scipy import spatial
 from getData import getFireData, getOilAssetData
@@ -57,12 +57,12 @@ class inDangerAssets:
             location = query[1]
 
             ##KmDistance = distToKM(distance)
-            if distance < 50:
+            if distance < 10:
 
-                dangerLevel = calcDangerLevel(distance)
+                dangerLevel = calcDangerLevel(distance, 10)
 
                 dict = {'id': row['Well_Name'], 'Latitude': row['Latitude'], 'Longitude': row['Longitude'],
-                        'dangerLevel': dangerLevel, 'Distance':distance, 'nearest': location}
+                        'dangerLevel':dangerLevel, 'Distance':distance}
 
                 inDangerAssetList.append(dict)
 
@@ -71,18 +71,9 @@ class inDangerAssets:
     def toCsv(self, path ):
         self.inDangerAssets.to_csv(path)
 
-def deg2rad(degree):
-
-    rad = degree * 2*np.pi / 360
-    return(rad)
-
-def distToKM(x):
-    R = 6367 # earth radius
-    gamma = 2*np.arcsin(deg2rad(x/(2*R))) # compute the angle of the isosceles triangle
-    dist = 2*R*sin(gamma/2) # compute the side of the triangle
-    return(dist)
-
 def test():
-    test = inDangerAssets(getOilAssetData(), getFireData())
+    test = inDangerAssets(getOilAssetData(), getFireData()).getAssetFrame()
+    test.to_csv("C:\\Users\Gavin Clarke\Documents\HackWestern2018\inDangerOilAssets\April13_2019.csv")
 
-test()
+
+
