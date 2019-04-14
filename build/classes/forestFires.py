@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from numpy import *
 
+from functions import to_Cartesian
+
 class forestFires():
 
     def __init__(self, fireDataFrame):
@@ -67,19 +69,3 @@ class forestFires():
 
     def getTree(self):
         return self.kdTreeFire
-
-def to_Cartesian(lat, lng):
-    R = 6367 # radius of the Earth in kilometers
-
-    lat = deg2rad(lat) ## conversion to radians
-    lng = deg2rad(lng)  ## conversion to radians
-
-    x = R * cos(lat) * cos(lng)
-    y = R * cos(lat) * sin(lng)
-    z = R * sin(lat)
-    return x, y, z
-
-def deg2rad(degree):
-
-    rad = degree * 2*np.pi / 360
-    return(rad)
