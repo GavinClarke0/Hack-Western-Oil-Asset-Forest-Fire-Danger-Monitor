@@ -2,6 +2,9 @@ from scipy import spatial
 import pandas as pd
 import numpy as np
 
+from functions import to_Cartesian
+from getData import getFireData, getOilAssetData
+
 
 class oilAssetData():
 
@@ -53,27 +56,6 @@ class oilAssetData():
 
         else:
             return False
+
     def getDataFrame(self):
         return self.oilDataFrame
-
-
-
-def to_Cartesian(lat, lon, R = 6371):
-    """
-    calculates lon, lat coordinates of a point on a sphere with
-    radius R
-    """
-    lon_r = np.radians(lon)
-    lat_r = np.radians(lat)
-
-    x =  R * np.cos(lat_r) * np.cos(lon_r)
-    y = R * np.cos(lat_r) * np.sin(lon_r)
-    z = R * np.sin(lat_r)
-    return x,y,z
-
-
-
-def deg2rad(degree):
-
-    rad = degree * 2*np.pi / 360
-    return(rad)
