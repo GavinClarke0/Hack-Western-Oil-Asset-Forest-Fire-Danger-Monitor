@@ -8,7 +8,11 @@ import plotly.graph_objs as go
 import plotly.plotly as py
 import pandas as pd
 
-df = pd.read_csv("C:\\Users\Gavin Clarke\Documents\HackWestern2018\inDangerOilAssets\April14_2019.csv")
+from OilAssets import *
+from forestFires import *
+from inDangerOilAssets import *
+
+df = inDangerAssets(getOilAssetData(), getFireData()).getAssetFrame()
 
 mapBoxToken = "pk.eyJ1IjoiZ2NsYXJrMjgiLCJhIjoiY2pyY252eWU2MGg0NjQ1cDRjNjJ2eTZjbyJ9.ZJd_6OJyyIq7NqAJYK9QgA"
 
