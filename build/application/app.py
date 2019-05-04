@@ -11,13 +11,12 @@ from getData import getOilAssetData, getFireData
 from inDangerOilAssets import inDangerAssets
 
 
-
 ## Data ##
 OilAssetsInDanger = inDangerAssets(getOilAssetData(), getFireData()).getAssetFrame()
 oilPriceWTI = getOilAssetData()
 
 OilAssetsInDanger = OilAssetsInDanger.sort_values(by='Distance')
-print(list(OilAssetsInDanger.columns.values))
+OilAssetsInDanger = OilAssetsInDanger[['id', 'Distance', 'Latitude', 'Longitude', 'dangerLevel',]]
 
 
 app = dash.Dash()
