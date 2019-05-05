@@ -3,7 +3,7 @@ Developed for Western University 36 Hour Hackathon. Utilizes a Plotly dashboard 
 
 Displays in an interactive map all oil assets within 10 kilometers of a forest fire.
 
-![Hack-Western](https://github.com/GavinClarke0/Hack-Western-Oil-Asset-Forest-Fire-Danger-Monitor/blob/master/images/May32019_OilAssetMap.png?raw=true "May 3rd Oil Assets near forest fires")
+![Hack-Western](https://github.com/GavinClarke0/Hack-Western-Oil-Asset-Forest-Fire-Danger-Monitor/blob/master/images/May5th_2019OilAssetDashBoard.png?raw=true "May 3rd Oil Assets near forest fires")
 
 Application is in process of updation to dashboard to modernize and add addtional features:
 - improve dash board by adding: live daily brent/wti oil future time series 
